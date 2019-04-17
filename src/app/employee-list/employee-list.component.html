@@ -1,0 +1,22 @@
+<div class="col-md-4 text-center">
+<button mat-raised-button  class="btn btn-outline-primary" color="primary" routerLink="/add">Add</button>
+</div>
+<table class="table table-hover">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+  </tr>
+  <tbody>
+  <tr *ngFor="let employee of users;let i=index" (click)="edit(i)">
+    <td>{{employee.firstName}} {{employee.lastName}}</td>
+    <td>{{employee.email}}</td>
+  </tr>
+  <tr *ngFor="let employee of employeeList.employees;let i =index" (click)="edit(i)">
+    <td>{{employee.firstName}} {{employee.lastName}}</td>
+    <td>{{employee.email}}</td>
+  </tr>
+</tbody>
+</table>
+
+
+
