@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {employees} from "../employees.json";
-import {EmployeeHolderService} from '../employee-holder.service';
+import {EmployeeHolderService} from '../../services/employee-holder.service';
 import { Router } from '@angular/router';
+import {EmployeeService} from '../../services/employee.service';
+
 
 
 
@@ -12,18 +13,24 @@ import { Router } from '@angular/router';
 })
 export class EmployeeListComponent implements OnInit {
 
-  users = employees;
+  
+  refresh(){
+    this.employeeService.getEmployees();
+  }
 
   edit(u:any){
+    console.log(this.employeeService.employees);
     this.router.navigateByUrl('/edit/'+u);
   }
 
-  constructor(public employeeList:EmployeeHolderService,private router:Router) { }
+  constructor(public employeeService:EmployeeService,private router:Router) { }
 
   ngOnInit() {
-    this.employeeList.employeeArray.forEach(employee =>{
-      console.log(employee);
-    })
+    this.refresh();
+    this.employeeService.getEmployees();
   }
+
+
+
 
 }

@@ -5,13 +5,14 @@ import { LoginComponent } from './login/login.component';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { EmployeeAddComponent } from './employee-add/employee-add.component';
 import { EmployeeEditComponent } from './employee-edit/employee-edit.component';
+import { AuthGuard } from '../services/auth.guard';
 
 const appRoutes: Routes = [
     {path: '', redirectTo:'login',pathMatch:'full'},
     {path: 'login',component:LoginComponent},
-    {path: 'list', component:EmployeeListComponent },
-    {path: 'add', component:EmployeeAddComponent},
-    {path: 'edit/:id', component:EmployeeEditComponent}
+    {path: 'list', component:EmployeeListComponent,canActivate:[AuthGuard] },
+    {path: 'add', component:EmployeeAddComponent,canActivate:[AuthGuard]},
+    {path: 'edit/:id', component:EmployeeEditComponent,canActivate:[AuthGuard]}
 
   ];
 
@@ -20,7 +21,7 @@ const appRoutes: Routes = [
     imports: [
       RouterModule.forRoot(
         appRoutes,
-        { enableTracing: true } // <-- debugging purposes only
+        { enableTracing: false } // <-- debugging purposes only
       )
     ],
     exports: [

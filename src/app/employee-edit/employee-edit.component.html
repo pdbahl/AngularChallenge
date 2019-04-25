@@ -1,6 +1,8 @@
 <div>
   <form [formGroup]="editForm">
     <div class="form-group">
+        <label>ID:</label>
+        <input type="text" formControlName="id" class=form-control readonly>
       <label>firstName</label>
       <input type="text" formControlName="firstName" class="form-control"
         [ngClass]="{ 'is-invalid':submitted && firstName.errors }" />

@@ -1,22 +1,23 @@
 <div class="col-md-4 text-center">
 <button mat-raised-button  class="btn btn-outline-primary" color="primary" routerLink="/add">Add</button>
+<button mat-raised-button  class="btn btn-outline-primary" color="primary" (click)="refresh()">Refresh</button>
 </div>
+<div class="container">
+  <div class="row">
 <table class="table table-hover">
-  <tr>
+  <tr style="text-align: center">
     <th>Name</th>
     <th>Email</th>
   </tr>
   <tbody>
-  <tr *ngFor="let employee of users;let i=index" (click)="edit(i)">
-    <td>{{employee.firstName}} {{employee.lastName}}</td>
-    <td>{{employee.email}}</td>
-  </tr>
-  <tr *ngFor="let employee of employeeList.employees;let i =index" (click)="edit(i)">
-    <td>{{employee.firstName}} {{employee.lastName}}</td>
-    <td>{{employee.email}}</td>
+  <tr *ngFor="let employee of employeeService.employees;let i =index"(click)="edit(i)" style="text-align: center">
+    <td>{{employee.FIRST_NAME + " " + employee.LAST_NAME}}</td>
+    <td>{{employee.EMAIL}}</td>
   </tr>
 </tbody>
 </table>
+</div>
+</div>
 
 
 

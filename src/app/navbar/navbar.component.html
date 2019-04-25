@@ -1,0 +1,15 @@
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+        <img src="https://angular.io/assets/images/logos/angularjs/AngularJS-Shield.svg" width="30" height="30" alt="">
+      </a>
+    <div>
+        <h3>Angular Challenge</h3>
+      </div>
+   <div class="navbar-nav ml-auto">
+     
+     <div *ngIf="auth.isLoggedIn===true" class="navbar-nav ml-auto">
+     Signed in as Administrator
+     <button class="btn btn-primary" (click)="logout()">Logout</button>
+    </div>
+  </div>
+</nav>

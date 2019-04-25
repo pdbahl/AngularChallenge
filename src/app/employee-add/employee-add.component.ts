@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { EmployeeHolderService } from '../employee-holder.service';
+import { EmployeeService } from '../../services/employee.service';
+
 
 
 @Component({
@@ -12,17 +13,29 @@ import { EmployeeHolderService } from '../employee-holder.service';
 export class EmployeeAddComponent implements OnInit {
   private addForm: FormGroup;
   submitted = false;
-  constructor(private fb: FormBuilder, private router: Router, public employeeService: EmployeeHolderService) {
+  constructor(private fb: FormBuilder, private router: Router, public employeeService: EmployeeService) {
   }
 
 
   addEmployee() {
-    console.log(this.addForm.get('state').value);
     this.submitted = true;
     if (this.addForm.invalid) {
       return;
     }
-    
+    let obj = {
+      FIRST_NAME: this.addForm.get('firstName').value,
+      LAST_NAME: this.addForm.get('lastName').value,
+      ADDRESS: this.addForm.get('address').value,
+      CITY: this.addForm.get('city').value,
+      STATE: this.addForm.get('state').value,
+      ZIP: this.addForm.get('zip').value,
+      HOME_PHONE: this.addForm.get('homePhone').value,
+      CELL_PHONE: this.addForm.get('cellPhone').value,
+      EMAIL: this.addForm.get('email').value,
+      ID:0
+    }
+    this.employeeService.addEmployee(obj);
+    /*
     let obj = {
       firstName: this.addForm.get('firstName').value,
       lastName: this.addForm.get('lastName').value,
@@ -35,7 +48,9 @@ export class EmployeeAddComponent implements OnInit {
       email: this.addForm.get('email').value
     }
     this.employeeService.employeeArray.push(obj);
+    */
     this.router.navigateByUrl('/list')
+  
   }
 
   get firstName() { return this.addForm.get('firstName'); }
@@ -55,6 +70,7 @@ export class EmployeeAddComponent implements OnInit {
 
 
   ngOnInit() {
+   
     this.submitted = false;
     this.addForm = this.fb.group({
       firstName: new FormControl("",

@@ -1,6 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
+import {EmployeeService} from '../../services/employee.service';
+import { Admin } from '../Models/Admin';
 
 
 @Component({
@@ -13,37 +16,43 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   private loginForm: FormGroup;
   submitted = false;
-  @Input()
-  user= {firstName:"", 
-        lastName:"", address:"", city:"", state:"",
-        zip: 1,
-        homePhone: 1,
-        cellPhone:1, 
-        email:"", username:"administrator",
-        password: "password"};
+  
 
-  constructor(private fb: FormBuilder,private router:Router) {
-    console.log(fb);
+  
+
+  constructor(private fb: FormBuilder,private router:Router,public authService:AuthService,private employeeService:EmployeeService) {
   }
 
+  
   login() {
     this.submitted=true;
     if(this.loginForm.invalid){
       return;
     }
-    if(this.loginForm.get('username').value!==this.user.username||this.loginForm.get('password').value!==this.user.password){
-      alert("Invalid username or password");
+    let obj = new Admin(this.loginForm.get('username').value,this.loginForm.get('password').value);
+
+    if(this.employeeService.logins.map(function(e) { return e.EMAIL; }).indexOf(this.loginForm.get('username').value)<=-1
+      && this.employeeService.logins.map(function(e) { return e.PASSWORD; }).indexOf(this.loginForm.get('password').value)<=-1){
+      alert('Invalid username or password');
       return;
     }
+    localStorage.setItem("isLoggedIn","true");
+    this.authService.isLoggedIn=true;
     this.router.navigateByUrl('/list')
+    
   }
 
+  refresh(){
+    this.employeeService.getEmployees();
+  }
+  
   get username() {return this.loginForm.get('username');}
   get password() {return this.loginForm.get('password');} 
 
   ngOnInit() {
+    this.employeeService.login();
     this.loginForm = this.fb.group({
-      username: new FormControl("", [Validators.required,Validators.minLength(4),Validators.maxLength(35), Validators.pattern("[A-Za-z\\'\\- 0-9]*")]),
+      username: new FormControl("", [Validators.required,Validators.minLength(4),Validators.maxLength(35)]),
       password: new FormControl("", [Validators.required,Validators.minLength(8),Validators.maxLength(35), Validators.pattern("[A-Za-z\\'\\- 0-9]*")])
     })
   }

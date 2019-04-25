@@ -1,163 +1,53 @@
 {"employees":
     [{
-  "firstName": "Phillip",
-  "lastName": "Bahlinger",
-  "address": "439 dsadsa Drive",
-  "city": "dsa",
-  "state": "ds",
-  "zip": "34243",
-  "homePhone": "1234567890",
-  "cellPhone": "1234567890",
-  "email": "fdsfs@fds.com"
+  "firstName": "Sebastian",
+  "lastName": "Cooper",
+  "address": "1121 IBM Rd.",
+  "city": "St. Louis",
+  "state": "MO",
+  "zip": "34232",
+  "homePhone": "2255555555",
+  "cellPhone": "2255555555",
+  "email": "Sebastian.SA.Cooper@ibm.com"
 },{
-    "firstName": "Phieellip",
-  "lastName": "Bahlidnger",
-  "address": "439 dsadsa Drive",
-  "city": "dsa",
-  "state": "ds",
-  "zip": "34243",
-  "homePhone": "1234567890",
-  "cellPhone": "1234567890",
-  "email":"dsadsada@gmail.com"
+    "firstName": "Jacob",
+  "lastName": "Shelton",
+  "address": "2332 Highland Rd.",
+  "city": "Baton Rouge",
+  "state": "LA",
+  "zip": "70810",
+  "homePhone": "2252223333",
+  "cellPhone": "2252223333",
+  "email":"Jacob.Shelton@gmail.com"
 },{
     "firstName": "Phillip",
     "lastName": "Bahlinger",
-    "address": "439 dsadsa Drive",
-    "city": "dsa",
-    "state": "ds",
-    "zip": "34243",
+    "address": "7836 Menlo Dr.",
+    "city": "Baton Rouge",
+    "state": "LA",
+    "zip": "70808",
     "homePhone": "1234567890",
     "cellPhone": "1234567890",
-    "email": "fdsfs@fds.com"
+    "email": "phil@ibm.com"
   },{
-    "firstName": "Phillip",
-    "lastName": "Bahlinger",
-    "address": "439 dsadsa Drive",
-    "city": "dsa",
-    "state": "ds",
-    "zip": "34243",
+    "firstName": "Pepe",
+    "lastName": "",
+    "address": "439 Copperfield Ct.",
+    "city": "Baton Rouge",
+    "state": "LA",
+    "zip": "70809",
     "homePhone": "1234567890",
     "cellPhone": "1234567890",
-    "email": "fdsfs@fds.com"
+    "email": "Pepe@gmail.com"
   },{
-    "firstName": "Phillip",
-    "lastName": "Bahlinger",
-    "address": "439 dsadsa Drive",
-    "city": "dsa",
-    "state": "ds",
-    "zip": "34243",
+    "firstName": "Andrew",
+    "lastName": "Reyes",
+    "address": "4392 Burbank Dr.",
+    "city": "Kenner",
+    "state": "LA",
+    "zip": "70304",
     "homePhone": "1234567890",
     "cellPhone": "1234567890",
-    "email": "fdsfs@fds.com"
-  },{
-    "firstName": "Phillip",
-    "lastName": "Bahlinger",
-    "address": "439 dsadsa Drive",
-    "city": "dsa",
-    "state": "ds",
-    "zip": "34243",
-    "homePhone": "1234567890",
-    "cellPhone": "1234567890",
-    "email": "fdsfs@fds.com"
-  },{
-    "firstName": "Phillip",
-    "lastName": "Bahlinger",
-    "address": "439 dsadsa Drive",
-    "city": "dsa",
-    "state": "ds",
-    "zip": "34243",
-    "homePhone": "1234567890",
-    "cellPhone": "1234567890",
-    "email": "fdsfs@fds.com"
-  },{
-    "firstName": "Phillip",
-    "lastName": "Bahlinger",
-    "address": "439 dsadsa Drive",
-    "city": "dsa",
-    "state": "ds",
-    "zip": "34243",
-    "homePhone": "1234567890",
-    "cellPhone": "1234567890",
-    "email": "fdsfs@fds.com"
-  },{
-    "firstName": "Phillip",
-    "lastName": "Bahlinger",
-    "address": "439 dsadsa Drive",
-    "city": "dsa",
-    "state": "ds",
-    "zip": "34243",
-    "homePhone": "1234567890",
-    "cellPhone": "1234567890",
-    "email": "fdsfs@fds.com"
-  },{
-    "firstName": "Phillip",
-    "lastName": "Bahlinger",
-    "address": "439 dsadsa Drive",
-    "city": "dsa",
-    "state": "ds",
-    "zip": "34243",
-    "homePhone": "1234567890",
-    "cellPhone": "1234567890",
-    "email": "fdsfs@fds.com"
-  },{
-    "firstName": "Phillip",
-    "lastName": "Bahlinger",
-    "address": "439 dsadsa Drive",
-    "city": "dsa",
-    "state": "ds",
-    "zip": "34243",
-    "homePhone": "1234567890",
-    "cellPhone": "1234567890",
-    "email": "fdsfs@fds.com"
-  },{
-    "firstName": "Phillip",
-    "lastName": "Bahlinger",
-    "address": "439 dsadsa Drive",
-    "city": "dsa",
-    "state": "ds",
-    "zip": "34243",
-    "homePhone": "1234567890",
-    "cellPhone": "1234567890",
-    "email": "fdsfs@fds.com"
-  },{
-    "firstName": "Phillip",
-    "lastName": "Bahlinger",
-    "address": "439 dsadsa Drive",
-    "city": "dsa",
-    "state": "ds",
-    "zip": "34243",
-    "homePhone": "1234567890",
-    "cellPhone": "1234567890",
-    "email": "fdsfs@fds.com"
-  },{
-    "firstName": "Phillip",
-    "lastName": "Bahlinger",
-    "address": "439 dsadsa Drive",
-    "city": "dsa",
-    "state": "ds",
-    "zip": "34243",
-    "homePhone": "1234567890",
-    "cellPhone": "1234567890",
-    "email": "fdsfs@fds.com"
-  },{
-    "firstName": "Phillip",
-    "lastName": "Bahlinger",
-    "address": "439 dsadsa Drive",
-    "city": "dsa",
-    "state": "ds",
-    "zip": "34243",
-    "homePhone": "1234567890",
-    "cellPhone": "1234567890",
-    "email": "fdsfs@fds.com"
-  },{
-    "firstName": "Phillip",
-    "lastName": "Bahlinger",
-    "address": "439 dsadsa Drive",
-    "city": "dsa",
-    "state": "ds",
-    "zip": "34243",
-    "homePhone": "1234567890",
-    "cellPhone": "1234567890",
-    "email": "fdsfs@fds.com"
+    "email": "Andrew.Reyes@gmail.com"
   }
 ]}

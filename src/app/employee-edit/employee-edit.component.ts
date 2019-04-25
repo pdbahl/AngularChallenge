@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { EmployeeHolderService } from '../employee-holder.service'
+import { EmployeeHolderService } from '../../services/employee-holder.service'
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
+import { EmployeeService } from '../../services/employee.service';
 
 @Component({
   selector: 'app-employee-edit',
@@ -13,7 +15,7 @@ export class EmployeeEditComponent implements OnInit {
   private editForm: FormGroup
   id = 0;
   submitted = false
-  constructor(private fb: FormBuilder, public route: ActivatedRoute, public employeeList: EmployeeHolderService, private router: Router) {
+  constructor(private fb: FormBuilder, public route: ActivatedRoute, public employeeService: EmployeeService, private router: Router) {
     this.route.params.subscribe(params => this.id = params['id']);
 
   }
@@ -24,15 +26,19 @@ export class EmployeeEditComponent implements OnInit {
     if (this.editForm.invalid) {
       return;
     }
-    this.employeeList.employeeArray[this.id].firstName = this.editForm.get('firstName').value;
-    this.employeeList.employeeArray[this.id].lastName = this.editForm.get('lastName').value;
-    this.employeeList.employeeArray[this.id].address = this.editForm.get('address').value;
-    this.employeeList.employeeArray[this.id].city = this.editForm.get('city').value;
-    this.employeeList.employeeArray[this.id].state = this.editForm.get('state').value;
-    this.employeeList.employeeArray[this.id].zip = this.editForm.get('zip').value;
-    this.employeeList.employeeArray[this.id].homePhone = this.editForm.get('homePhone').value;
-    this.employeeList.employeeArray[this.id].cellPhone = this.editForm.get('cellPhone').value;
-    this.employeeList.employeeArray[this.id].email = this.editForm.get('email').value;
+    let obj = {
+      FIRST_NAME: this.editForm.get('firstName').value,
+      LAST_NAME: this.editForm.get('lastName').value,
+      ADDRESS: this.editForm.get('address').value,
+      CITY: this.editForm.get('city').value,
+      STATE: this.editForm.get('state').value,
+      ZIP: this.editForm.get('zip').value,
+      HOME_PHONE: this.editForm.get('homePhone').value,
+      CELL_PHONE: this.editForm.get('cellPhone').value,
+      EMAIL: this.editForm.get('email').value,
+      ID:this.editForm.get('id').value
+    }
+    this.employeeService.editEmployee(obj);
 
     this.router.navigateByUrl('/list');
   }
@@ -55,51 +61,52 @@ export class EmployeeEditComponent implements OnInit {
   ngOnInit() {
     this.submitted = false;
     this.editForm = this.fb.group({
-      firstName: new FormControl(this.employeeList.employeeArray[this.id].firstName,
+      id:new FormControl(this.employeeService.employees[this.id].ID),
+      firstName: new FormControl(this.employeeService.employees[this.id].FIRST_NAME,
         [Validators.required,
         Validators.minLength(2),
         Validators.maxLength(35),
         Validators.pattern("[A-Za-z]*")]),
 
-      lastName: new FormControl(this.employeeList.employeeArray[this.id].lastName,
+      lastName: new FormControl(this.employeeService.employees[this.id].LAST_NAME,
         [Validators.required, Validators.minLength(2),
         Validators.maxLength(35),
         Validators.pattern("[A-Za-z]*")]),
 
-      address: new FormControl(this.employeeList.employeeArray[this.id].address,
+      address: new FormControl(this.employeeService.employees[this.id].ADDRESS,
         [Validators.required, Validators.minLength(10),
         Validators.maxLength(50)]),
 
-      city: new FormControl(this.employeeList.employeeArray[this.id].city,
+      city: new FormControl(this.employeeService.employees[this.id].CITY,
         [Validators.required,
         Validators.minLength(5),
         Validators.maxLength(50), Validators.pattern("[a-zA-Z][a-zA-Z ]+[a-zA-Z]$")]),
 
-      state: new FormControl(this.employeeList.employeeArray[this.id].state, [Validators.required]),
+      state: new FormControl(this.employeeService.employees[this.id].STATE, [Validators.required]),
 
-      zip: new FormControl(this.employeeList.employeeArray[this.id].zip,
+      zip: new FormControl(this.employeeService.employees[this.id].ZIP,
         [Validators.required,
         Validators.minLength(5),
         Validators.maxLength(9),
         Validators.pattern("^[0-9]*")]),
 
-      homePhone: new FormControl(this.employeeList.employeeArray[this.id].homePhone,
+      homePhone: new FormControl(this.employeeService.employees[this.id].HOME_PHONE,
         [Validators.required,
         Validators.minLength(10),
         Validators.maxLength(10),
         Validators.pattern("^[0-9]+$")]),
 
-      cellPhone: new FormControl(this.employeeList.employeeArray[this.id].cellPhone,
+      cellPhone: new FormControl(this.employeeService.employees[this.id].CELL_PHONE,
         [Validators.required,
         Validators.minLength(10),
         Validators.maxLength(10),
         Validators.pattern("^[0-9]+$")]),
 
-      email: new FormControl(this.employeeList.employeeArray[this.id].email,
+      email: new FormControl(this.employeeService.employees[this.id].EMAIL,
         [Validators.required,
         Validators.minLength(10),
         Validators.maxLength(50),
-        Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]")])
+        Validators.pattern("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]")])
     })
   }
 }
