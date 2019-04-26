@@ -35,21 +35,6 @@ export class EmployeeAddComponent implements OnInit {
       ID:0
     }
     this.employeeService.addEmployee(obj);
-    /*
-    let obj = {
-      firstName: this.addForm.get('firstName').value,
-      lastName: this.addForm.get('lastName').value,
-      address: this.addForm.get('address').value,
-      city: this.addForm.get('city').value,
-      state: this.addForm.get('state').value,
-      zip: this.addForm.get('zip').value,
-      homePhone: this.addForm.get('homePhone').value,
-      cellPhone: this.addForm.get('cellPhone').value,
-      email: this.addForm.get('email').value
-    }
-    this.employeeService.employeeArray.push(obj);
-    */
-    this.router.navigateByUrl('/list')
   
   }
 

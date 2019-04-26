@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {EmployeeHolderService} from '../../services/employee-holder.service';
 import { Router } from '@angular/router';
 import {EmployeeService} from '../../services/employee.service';
 
@@ -23,10 +22,11 @@ export class EmployeeListComponent implements OnInit {
     this.router.navigateByUrl('/edit/'+u);
   }
 
-  constructor(public employeeService:EmployeeService,private router:Router) { }
+  constructor(public employeeService:EmployeeService,private router:Router) {
+    this.employeeService.getEmployees();
+   }
 
   ngOnInit() {
-    this.refresh();
     this.employeeService.getEmployees();
   }
 

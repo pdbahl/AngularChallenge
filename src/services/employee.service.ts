@@ -3,6 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http'
 import { throwError} from 'rxjs';
 import {User} from '../app/Models/User';
 import { Admin } from '../app/Models/Admin';
+import{Router} from '@angular/router'
 
 const httpOptions = {
   
@@ -11,7 +12,7 @@ const httpOptions = {
 
 @Injectable()
 export class EmployeeService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,private router:Router) {}
   employees:User[];
   logins:Admin[];
 
@@ -27,7 +28,9 @@ export class EmployeeService {
   
   addEmployee(employee:User){
     this.http.post<User>(this.baseUrl+'/employees/add',employee).subscribe(
+      
       data  => {
+      this.router.navigateByUrl('/list');
       console.log("POST Request is successful ", data);
       },
       error  => {
@@ -39,6 +42,7 @@ export class EmployeeService {
   editEmployee(employee){
     return this.http.put(this.baseUrl +'/employees/edit', employee).subscribe(
       data  => {
+      this.router.navigateByUrl('/list');
       console.log("PUT Request is successful ", data);
       },
       error  => {

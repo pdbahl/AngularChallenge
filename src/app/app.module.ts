@@ -13,7 +13,7 @@ import { LoginComponent } from './login/login.component';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { EmployeeAddComponent } from './employee-add/employee-add.component';
 import { EmployeeEditComponent } from './employee-edit/employee-edit.component';
-import { EmployeeHolderService } from '../services/employee-holder.service';
+
 import { AuthGuard } from '../services/auth.guard';
 import { OrderByPipe } from '../services/order-by.pipe';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -44,7 +44,7 @@ import { User } from './Models/User';
   exports:[
     OrderByPipe
   ],
-  providers: [EmployeeHolderService,EmployeeService,AuthGuard,User],
+  providers: [EmployeeService,AuthGuard,User],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

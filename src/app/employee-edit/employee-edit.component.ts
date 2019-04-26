@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { EmployeeHolderService } from '../../services/employee-holder.service'
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { EmployeeService } from '../../services/employee.service';
@@ -40,7 +39,6 @@ export class EmployeeEditComponent implements OnInit {
     }
     this.employeeService.editEmployee(obj);
 
-    this.router.navigateByUrl('/list');
   }
 
   get firstName() { return this.editForm.get('firstName'); }
